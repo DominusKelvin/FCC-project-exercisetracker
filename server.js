@@ -54,7 +54,7 @@ var exerciseSchema = new Schema({
 var Exercise = mongoose.model('Exercise', exerciseSchema);
 
 //Setting up post actions
-//To add a new user
+//Endpoint to create a new user
 app.post('/api/exercise/new-user', function(req,res) {
   var username = req.body.username;
   User.count({username: username}, (err, count) => {
@@ -70,7 +70,7 @@ app.post('/api/exercise/new-user', function(req,res) {
   })
 });
 
-//To log exercise/activity of exisiting user
+//This endpoint logs a user exercises when given at least the userId
 app.post('/api/exercise/add', function(req,res) {
   var userId = req.body.userId;
   User.count({username:userId}, (err,count) => {
