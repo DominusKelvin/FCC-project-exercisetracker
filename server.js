@@ -73,7 +73,7 @@ app.post('/api/exercise/new-user', function(req,res) {
 //To log exercise/activity of exisiting user
 app.post('/api/exercise/add', function(req,res) {
   var userId = req.body.userId;
-  User.count({user:userId}, (err,count) => {
+  User.count({username:userId}, (err,count) => {
     if (err) {
       console.log(err);
       res.json({"error": err});
